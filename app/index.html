@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Jarret's Decentralized Voting App</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+  <script src="./app.js"></script>
+</head>
+<body class="container">
+  <div id="app">
+  <h1>Jarret's Voting App</h1>
+  </br>
+  <h2>{{Time}}</h2>
+  <div id="address"></div>
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Candidate</th>
+          <th>Votes</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(item, index) in candidates">
+          <td>{{item}}</td>
+          <td :id="'candidate-'+ item">{{votes[index]}}</td>
+          <td><a href="#" v-on:click="voteForCandidate(item)" class="btn btn-primary">Vote</a></td>
+        </tr>
+      </tbody>
+    </table>
+    <div id="msg"></div>
+  </div>
+  <span>
+  <input v-model="Name" placeholder="Name">
+  <input v-model="Email" placeholder="Email">
+  <a href="#" v-on:click="registerCandidate(Name,Email)" class="btn btn-primary">Register as a candidate</a>
+  </span>
+  </br>
+  </br>
+
+  <a href="#" v-on:click="declareWinner()" class="btn btn-primary">Declare Winner</a>
+  </br>
+    </br>
+
+    <a href="#" v-on:click="getWinner()" class="btn btn-primary">Get Winner</a>
+  </br>
+    </br>
+
+</body>
+</html>
